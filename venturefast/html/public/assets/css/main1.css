@@ -1,0 +1,94 @@
+@keyframes animatedBackground {
+    from {
+        background-position: 0 100%
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+@-webkit-keyframes animatedBackground {
+    from {
+        background-position: 0 100%
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+@-ms-keyframes animatedBackground {
+    from {
+        background-position: 0 100%
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+@-moz-keyframes animatedBackground {
+    from {
+        background-position: 0 100%
+    }
+    to {
+        background-position: 0 0
+    }
+}
+
+.main_banner {
+    /*background-image: 
+    -webkit-linear-gradient(90deg, #000000 0, #080808 100%);*/
+    height: 100px;
+    / margin: 25px; /
+    position: relative;
+    / margin-top: -10px; /
+    border-top: 1px solid #d40000;
+}
+
+.main_banner .mb_animate {
+    background-image: url('../img/guns.png');
+    background-position: 0 0;
+    background-repeat: repeat;
+    animation: animatedBackground 10s linear infinite;
+    -ms-animation: animatedBackground 10s linear infinite;
+    -moz-animation: animatedBackground 10s linear infinite;
+    -webkit-animation: animatedBackground 10s linear infinite;
+    height: 100px
+}
+
+.main_banner .mb_grad {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(900deg, rgba(16, 30, 45, 0.21) 0, rgba(41, 41, 41, 0.48) 85%, rgba(41, 41, 41, 0.48) 0, rgba(41, 41, 41, 0.48) 100%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 23px;
+    text-align: center;
+    line-height: 27px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.main_banner .mb_grad span {
+    display: block;
+    font-size: 18px;
+    font-weight: 400
+}
+.index_banner1 {
+    margin: 0;
+    overflow: hidden;
+    width: 927px
+}
+
+.index_banner1>.mb_grad {
+    border-radius: 6px
+mb-link {
+    display: inline-block;
+    vertical-align: top;
+    width: 33.3%;
+    margin-top: 10px;
+    text-decoration: none
+}

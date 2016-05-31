@@ -1,0 +1,118 @@
+Здравствуй!  Поздравляю с покупкой VENTUREFAST для установки нам понадобится VPS сервер с установленной ОС Ubuntu x32/64 12.4 или 14.4 не важно.
+Хочу отметить что после всех сделанных фиксов, рулетка работает шустрее так что для началы вы можете взять сервер всего за 74р на http://mne.ru онлайн в 100 человек тянет спокойно.
+И так вы установили Ubuntu, скачали программы Putty и WinSCP, теперь запускаем Putty и подключаемся к нашему серверу. (Данные для подключения, были высланы провайдером на вашу почту при заказе сервера).
+
+Зашли в Putty? В строку ввода в терминале, по порядку вводим комманды:
+
+apt-get install sudo
+
+sudo apt-get update
+
+apt-get install curl
+
+sudo apt-get install -y build-essential
+
+sudo apt-get install -y python-software-properties
+
+sudo apt-get install -y php5
+
+sudo apt-get install -y apache2
+
+sudo apt-get install -y libapache2-mod-php5
+
+sudo apt-get install -y mysql-server
+
+sudo apt-get install -y php5-mysql
+
+sudo apt-get install -y php5-curl
+
+sudo apt-get install -y php5-gd
+
+sudo apt-get install -y php5-mcrypt
+
+sudo apt-get install -y git-core
+
+sudo apt-get install -y phpmyadmin
+
+apt-get install unzip
+
+curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
+
+apt-get install --yes nodejs
+
+apt-get install --yes build-essential
+
+sudo a2enmod rewrite
+
+sudo /etc/init.d/apache2 restart
+
+curl -sS https://getcomposer.org/installer | php
+
+sudo mv composer.phar /usr/local/bin/composer
+
+sudo apt-get update
+
+sudo apt-get install tcl8.5
+
+wget http://download.redis.io/releases/redis-stable.tar.gz
+
+tar xzf redis-stable.tar.gz
+
+cd redis-stable
+
+make
+
+make test
+
+sudo make install
+
+cd utils
+
+sudo ./install_server.sh
+
+Идём в /etc/apache2/sites-avialable
+
+Меняем DocumentRoot /var/www/html на DocumentRoot /var/www/html/public
+
+---
+
+Идём в /etc/apache2/apache2.conf и заменяем "none" на "All", далее в самом конце файла вставить это:
+
+Include /etc/phpmyadmin/apache.conf
+
+---
+
+Идём в /etc/redis/6379.conf
+
+Ищем:
+
+#bind 127.0.0.1
+
+Заменяем на:
+
+bind 127.0.0.1
+
+Перезагружаем редис командой:
+
+service redis_6379 restart
+
+service apache2 restart
+
+Далее переходим в "айпи сайта"/phpmyadmin, вводим логин и пароль от бд, которые вы вписывали в консоли. Затем создаем бд и импортируем бд в phpmyadmin
+
+Далее переходим в скрипт и ищем файл .emv . Внутри файла меняем всё на наши данные из phpmyadmin
+
+Далее переходим в папку config скрипте, затем ищем и заходим в файл database.php, там выставляем всё аналогично прошлому пункту
+
+Проставляем в свойствах папок storage и их наследующих галочки на запись 
+
+chmod -R 777 /var/www/html/storage
+
+С папкой framework делаем тоже самое
+
+И так, чтобы видеть панельку подкрутки вам нелбходимо зайти в базу и выбрать таблицу users там вы находите свой nickname и жмете изменить и затем  меняете в поле is_admin: 0 на 1  Сделали? теперь обновите главную страницу рулетки и увидите удобную парельку подкрутки. Как подкруяивать думаю понятно.
+На данный момент скрипт переведен на 99% только из за того что мне стало лень ;) если вы видите что текст не переведен или переведен не верно или видите значения типо: index.userproigrish и т.д  вы просто идете в resurse/lang там выбираете папку en либо ru ищите файл index.php открываете и вводите в него "index.userproigrish= Проигрыш" Смекнули? Если нет пишите в Skype: donovets
+С бонус ботом и сами разберетесь. Все остальное уже прописано и обьяснять лень. дыр нету, все переписано, шеллы не сувал.
+
+Спасибо за покупку! 
+P.S TwoStar
